@@ -15,8 +15,11 @@ RUN chmod u+rx,g+rx,o+rx,a-w /opt/docker-entrypoint.sh && \
     addgroup -g 10777 worker && \
     adduser -D -G worker -u 10777 worker && \
     mkdir /work/ && \
+    mkdir /work-private/ && \
     chown -R worker:worker /work/ && \
     chmod -R u+rwx,g+rwx,o-rwx /work/ && \
+    chown -R worker:worker /work-private/ && \
+    chmod -R u+rwx,g+rwx,o-rwx /work-private/ && \
     rm -rf /tmp/* /var/cache/apk/*
 
 #
