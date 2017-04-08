@@ -29,5 +29,6 @@ EXPOSE 2990
 USER worker
 WORKDIR /work/
 VOLUME ["/work"]
+VOLUME ["/work-private"]
 ENTRYPOINT ["/opt/docker-entrypoint.sh"]
 CMD ["npm", "-version"]
