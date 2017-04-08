@@ -6,6 +6,8 @@ FROM alpine:3.5
 RUN apk add --no-cache \
             bash \
             git \
+            curl \
+            zip \
             ca-certificates \
             nodejs-current
 
