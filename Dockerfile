@@ -20,9 +20,11 @@ RUN chmod u+rx,g+rx,o+rx,a-w /opt/docker-entrypoint.sh && \
     adduser -D -G worker -u 10777 worker && \
     mkdir /work/ && \
     mkdir /work-private/ && \
+    mkdir /data/ && \
     chown -R worker:worker /work/ && \
     chmod -R u+rwx,g+rwx,o-rwx /work/ && \
     chown -R worker:worker /work-private/ && \
+    chown -R worker:worker /data/ && \
     chmod -R u+rwx,g+rwx,o-rwx /work-private/ && \
     rm -rf /tmp/* /var/cache/apk/*
 
@@ -34,5 +36,6 @@ USER worker
 WORKDIR /work/
 VOLUME ["/work"]
 VOLUME ["/work-private"]
+VOLUME ["/data"]
 ENTRYPOINT ["/opt/docker-entrypoint.sh"]
 CMD ["npm", "-version"]
