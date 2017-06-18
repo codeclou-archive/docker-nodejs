@@ -7,6 +7,7 @@ RUN apk add --no-cache \
             bash \
             git \
             curl \
+            jq \
             zip \
             ca-certificates \
             nodejs-current
