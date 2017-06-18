@@ -25,7 +25,7 @@ Assuming you are currently inside a NodeJS Project containing a `package.json`, 
 docker run \
     -i -t \
     -v $(pwd):/work \
-    codeclou/docker-nodejs:7.5.0 \
+    codeclou/docker-nodejs:7.5.0.1 \
     npm install
 ```
 
