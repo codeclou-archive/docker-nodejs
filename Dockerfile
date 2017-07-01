@@ -5,13 +5,20 @@ FROM alpine:3.6
 #
 RUN apk add --no-cache \
             bash \
+            gpg \
             git \
             curl \
             jq \
             zip \
             ca-certificates \
-            nodejs-current \
-            yarn
+            nodejs \
+            nodejs-npm
+          
+
+#
+# UPDATE NPM
+#
+RUN npm install npm@latest -g
 
 #
 # INSTALL AND CONFIGURE
@@ -37,6 +44,13 @@ RUN chmod u+rx,g+rx,o+rx,a-w /opt/docker-entrypoint.sh && \
 #
 EXPOSE 2990
 USER worker
+
+#
+# YARN INSTALL
+#
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash
+ENV PATH "$HOME/.yarn/bin:$PATH"
+
 WORKDIR /work/
 VOLUME ["/work"]
 VOLUME ["/work-private"]
