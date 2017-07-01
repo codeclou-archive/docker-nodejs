@@ -1,24 +1,19 @@
 FROM alpine:3.6
 
 #
-# BASE PACKAGES + Node.js and Yarn
+# BASE PACKAGES
 #
 RUN apk add --no-cache \
             bash \
-            gpg \
+            gnupg \
             git \
             curl \
             jq \
             zip \
             ca-certificates \
-            nodejs \
-            nodejs-npm
-          
-
-#
-# UPDATE NPM
-#
-RUN npm install npm@latest -g
+            nodejs-current \
+            nodejs-npm && \
+            npm install npm@latest -g
 
 #
 # INSTALL AND CONFIGURE
@@ -49,7 +44,6 @@ USER worker
 # YARN INSTALL
 #
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash
-ENV PATH "$HOME/.yarn/bin:$PATH"
 
 WORKDIR /work/
 VOLUME ["/work"]

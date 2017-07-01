@@ -4,6 +4,11 @@
 
 Docker-Image to run [NodeJS](https://nodejs.org/en/) for dockerized builds.
 
+It provides:
+ * yarn version 0.27.5
+ * node.js version 7.10.0
+ * npm version 5.0.4
+
 -----
 
 &nbsp;
